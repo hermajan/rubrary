@@ -1,0 +1,36 @@
+<div class="pull-right">
+	<% if current_user.try(:admin?) %>
+		<%= link_to 'New', new_reservation_path, class: 'btn btn-success' %>
+	<% end %>
+</div>
+
+<h1>Reservations</h1>
+
+<table id="reservations_table" class="table">
+	<thead>
+		<tr>
+			<th>Book</th>
+			<th>User</th>
+			<th>From</th>
+			<th>To</th>
+			<th colspan="4"></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @reservations.each do |reservation| %>
+			<tr>
+			<td><%= Book.find(reservation.book_id).name %></td>
+			<td><%= User.find(reservation.user_id).email %></td>
+			<td><%= reservation.from %></td>
+			<td><%= reservation.to %></td>
+			<td><%= link_to 'Show', reservation, class: 'btn btn-default' %></td>
+			<% if current_user.try(:admin?) %>
+				<td><%= link_to 'Edit', edit_reservation_path(reservation), class: 'btn btn-warning' %></td>
+				<td><%= link_to 'Remove', reservation, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+			<% end %>
+			<td><%= link_to 'Reserve', reservation, class: 'btn btn-primary' %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

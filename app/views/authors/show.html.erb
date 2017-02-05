@@ -1,20 +1,17 @@
 <h1><%= @author.name %></h1>
 
 <table id="books_table" class="table">
-  <tr>
-      <th>Name</th>
-	  <th colspan="2"></th>
-  </tr>
-  <% (@author.books).each do |book| %>
-  <tr>
-	  <td>
-		  <%= book.name %>
-	  </td>
-	  <% if current_user.try(:admin?) %>
-	  	<td><%= book.deleted? ? 'deleted' : '' """link_to('Complete', complete_author_book_path(@author, book), method: :post, class: 'btn btn-warning')  """%></td>
-	  	<td><%= link_to 'Remove', author_path(@author, book), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'  %></td>
-	  <% end %>
-  </tr>
+	<tr>
+		<th>Book name</th>
+		<th>Book year</th>
+		<th>Book ISBN</th>
+	</tr>
+	<% (@author.books).each do |book| %>
+	<tr>
+		<td><%= link_to book.name, book %></td>
+		<td><%= book.year %></td>
+		<td><%= book.isbn %></td>
+	</tr>
 	<% end %>
 </table>
 

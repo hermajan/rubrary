@@ -1,0 +1,7 @@
+<h1>Reservation</h1>
+<p><%= link_to Book.find(@reservation.book_id).name, Book.find(@reservation.book_id) %></p>
+<p><%= User.find(@reservation.user_id).email %></p>
+<p><%= @reservation.from %></p>
+<p><%= @reservation.to %></p>
+
+<%= link_to 'Back', reservations_path %>

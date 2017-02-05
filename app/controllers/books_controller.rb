@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  
   def index
     @books = Book.all.order(:name)
     #@important = Task.where("priority < '0'").order(:priority).all
@@ -57,6 +59,6 @@ class BooksController < ApplicationController
 
   private
     def book_params
-      params.require(:book).permit(:name, :author, :year, :isbn)
+      params.require(:book).permit(:name, :author_id, :year, :isbn)
     end
 end
