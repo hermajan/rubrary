@@ -1,4 +1,6 @@
 class AuthorsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  
   def index
     @authors = Author.all.order(:name)
     #@important = Task.where("priority < '0'").order(:priority).all

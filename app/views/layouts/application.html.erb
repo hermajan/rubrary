@@ -14,6 +14,8 @@
 	
 	<script src="/libs/jquery/jquery.min.js"></script>
 	
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
 </head>
 
@@ -41,6 +43,12 @@
 	
 		<div class="navbar-right">
 			<ul class="nav navbar-nav">
+				<% if user_signed_in? %>
+					<li><%= link_to('Settings', edit_user_registration_path) %></li>
+					<li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+				<% else %>
+					<li><%= link_to('Login', new_user_session_path) %></li>
+				<% end %>
 				<li><a href="https://github.com/hermajan/rubrary"><i class="fa fa-github fa-lg"></i></a></li>
 			</ul>
 		</div>

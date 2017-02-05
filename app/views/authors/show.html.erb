@@ -10,8 +10,10 @@
 	  <td>
 		  <%= book.name %>
 	  </td>
-	  <td><%= book.deleted? ? 'deleted' : '' """link_to('Complete', complete_author_book_path(@author, book), method: :post, class: 'btn btn-warning')  """%></td>
-	  <td><%= link_to 'Remove', author_path(@author, book), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'  %></td>
+	  <% if current_user.try(:admin?) %>
+	  	<td><%= book.deleted? ? 'deleted' : '' """link_to('Complete', complete_author_book_path(@author, book), method: :post, class: 'btn btn-warning')  """%></td>
+	  	<td><%= link_to 'Remove', author_path(@author, book), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'  %></td>
+	  <% end %>
   </tr>
 	<% end %>
 </table>
