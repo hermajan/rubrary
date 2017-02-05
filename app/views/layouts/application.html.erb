@@ -1,14 +1,72 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Rubrary</title>
-    <%= csrf_meta_tags %>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="Jan Hermann">
+	
+	<title>Rubrary</title>
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" media="screen" href="/style.css">
+	
+	<script src="/libs/jquery/jquery.min.js"></script>
+	
+	<%= csrf_meta_tags %>
+</head>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<body>
+<div id="wrap">
+	<header class="navbar navbar-default navbar-static-top navbar-inverse">
+	<div class="container-fluid">
+	<nav class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="/" style="padding-top:10px;">
+			<img src="/favicon.ico" alt="logo" style="width: 32px; height: 32px;">	Rubrary
+		</a>
+	</nav>
+	
+	<nav class="collapse navbar-collapse">
+		<ul class="nav navbar-nav">
+			<li id="home-navbar"><a href="/"><i class="fa fa-home fa-lg"></i></a></li>
+			<li id="authors-navbar"><a href="/authors" title="Authors"><i class="fa fa-male fa-lg" aria-hidden="true"></i> Authors</a></li>
+			<li id="books-navbar"><a href="/books" title="Books"><i class="fa fa-book fa-lg" aria-hidden="true"></i> Books</a></li>
+		</ul>
+	
+		<div class="navbar-right">
+			<ul class="nav navbar-nav">
+				<li><a href="https://github.com/hermajan/rubrary"><i class="fa fa-github fa-lg"></i></a></li>
+			</ul>
+		</div>
+	</nav><!--/.nav-collapse -->
+	</div>
+	</header>
+	
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<p class="notice"><%= notice %></p>
+				<p class="alert"><%= alert %></p>
+				<%= yield %>
+			</div>
+		</div>
+	</div>
+</div>
+	
+<script src="/libs/bootstrap/js/bootstrap.min.js"></script>
 
-  <body>
-    <%= yield %>
-  </body>
+<footer id="footer">
+<div class="container-fluid"><div class="row">
+	<p class="text-right">
+		
+	</p>
+</div></div>
+</footer>
+</body>
 </html>

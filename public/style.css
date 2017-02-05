@@ -1,0 +1,133 @@
+@import url("libs/bootstrap/css/bootstrap.min.css");
+
+html, body {
+	height: 100%;
+	/* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	/* Negative indent footer by its height */
+	margin: 0 auto -40px;
+	/* Pad bottom by footer height */
+	padding: 0 0 60px;
+}
+
+.container-fluid {
+	margin: 0px 20px; 
+}
+
+.navbar {
+	margin-bottom: 0px;
+}
+.navbar .nav > li > a {
+	padding: 15px 10px;
+}
+.navbar-brand {
+	padding: 15px 10px;
+	color: ghostwhite!important;
+}
+.navbar-brand > img {
+	display: inline;
+}
+
+.navbar-inverse {
+	background-color: maroon;
+	border-color: maroon;
+}
+.navbar-inverse .navbar-nav>li>a {
+	color: whitesmoke;
+}
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>.active>a:hover {
+	background-color: whitesmoke;
+	color: firebrick;
+}
+.navbar-inverse .navbar-nav>.active>a {
+	background-color: firebrick;
+}
+
+#menu { 
+	padding: 10px 0px 0px 0px;
+}
+#menu .nav {
+	max-width: 300px;
+}
+#menu .panel-heading, #menu .panel-heading a {
+	background-color: maroon;
+	color: whitesmoke;
+}
+#menu a:hover {
+	background-color: firebrick;
+	color: white;
+}
+#menu .panel, #menu .nav>li>a {
+	border-color: maroon;
+}
+#menu .panel-heading.active, #menu .panel-heading.active>h4>a, #menu li.active>a {
+	background-color: firebrick;
+}
+#menu ul.inside {
+	margin-left: 20px;
+}
+
+.octicon {
+	color: whitesmoke !important;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+	width: 100%;
+	height: 40px;
+	background-color: whitesmoke;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+#wrap > .container-fluid {
+  padding: 0px 15px;
+}
+
+#footer > .container-fluid {
+	padding: 10px 15px 0px;
+}
+
+/* Bootstrap Panels */
+.panel {
+	margin-bottom: 0px;
+}
+.panel-heading {
+	cursor: pointer;
+}
+.panel-heading .toggle:after {
+	font-family: "FontAwesome";
+	content: "\f078"; /* symbol for "opening" panels */
+}
+.panel-heading.collapsed .toggle:after {
+	font-family: "FontAwesome";
+	content: "\f054"; /* symbol for "collapsed" panels */
+}
+
+.anchor, .anchor > small {
+	color: transparent;
+}
+.anchor:hover, .anchor > small:hover {
+	color: #777;
+	text-decoration: none;
+}
+
+.page-header {
+	margin: 10px 0 5px;
+}
+.searchForm {
+	margin: 10px;
+}
+
+.github-widget {
+	max-width: 640px;
+}
