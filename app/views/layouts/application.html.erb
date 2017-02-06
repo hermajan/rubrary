@@ -39,16 +39,21 @@
 			<li id="home-navbar"><a href="/"><i class="fa fa-home fa-lg"></i></a></li>
 			<li id="authors-navbar"><a href="/authors" title="Authors"><i class="fa fa-male fa-lg" aria-hidden="true"></i> Authors</a></li>
 			<li id="books-navbar"><a href="/books" title="Books"><i class="fa fa-book fa-lg" aria-hidden="true"></i> Books</a></li>
-			<li id="reservations-navbar"><a href="/reservations" title="Reservations"><i class="fa fa-book fa-lg" aria-hidden="true"></i> Reservations</a></li>
+			<li id="reservations-navbar"><a href="/reservations" title="Reservations"><i class="fa fa-shopping-basket fa-lg" aria-hidden="true"></i> Reservations</a></li>
 		</ul>
 	
 		<div class="navbar-right">
 			<ul class="nav navbar-nav">
-				<% if user_signed_in? %>
-					<li><%= link_to('Settings', edit_user_registration_path) %></li>
-					<li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+				<% if user_signed_in?
+					if current_user.try(:admin?)
+						userIcon = "-plus"
+					end
+				%>
+					<p class="navbar-text"><i class="fa fa-user<%= userIcon %>" aria-hidden="true"></i> <%= current_user.email %></p>
+					<li><%= link_to('<i class="fa fa-cog" aria-hidden="true"></i> Settings'.html_safe, edit_user_registration_path) %></li>
+					<li><%= link_to('<i class="fa fa-sign-out" aria-hidden="true"></i> Logout'.html_safe, destroy_user_session_path, :method => :delete) %></li>
 				<% else %>
-					<li><%= link_to('Login', new_user_session_path) %></li>
+					<li><%= link_to('<i class="fa fa-sign-in" aria-hidden="true"></i> Login'.html_safe, new_user_session_path) %></li>
 				<% end %>
 				<li><a href="https://github.com/hermajan/rubrary"><i class="fa fa-github fa-lg"></i></a></li>
 			</ul>
@@ -60,8 +65,12 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
-				<p class="notice"><%= notice %></p>
-				<p class="alert"><%= alert %></p>
+				<% if alert %>
+					<div class="alert alert-danger" role="alert"><%= alert %></div>
+				<% end %>
+				<% if notice %>
+					<div class="alert alert-warning" role="alert"><%= notice %></div>
+				<% end %>
 				<%= yield %>
 			</div>
 		</div>

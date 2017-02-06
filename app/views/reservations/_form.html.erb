@@ -9,12 +9,17 @@
 
 	<div class="form-group">
 		<%= f.label :book_id %>
-		<%= collection_select(:reservation, :book_id, Book.all, :id, :name, class: 'form-control') %>
+		<%= collection_select :reservation, :book_id, Book.all, :id, :name, {}, {class: 'form-control'} %>
 	</div>
 
 	<div class="form-group">
 		<%= f.label :user_id %>
-		<%= collection_select(:reservation, :user_id, User.all, :id, :email, class: 'form-control') %>
+		<% if current_user.try(:admin?)
+			users = User.all
+		else
+			users = User.where(email: current_user.email)
+		end %>
+		<%= collection_select :reservation, :user_id, users, :id, :email, {}, {class: 'form-control'} %>
 	</div>
 
 	<div class="form-group">
@@ -27,5 +32,5 @@
 		<%= f.date_field :to, class: 'form-control' %>
 	</div>
 
-	<%= f.submit 'Save', class: 'btn btn-default' %>
+	<%= f.button '<i class="fa fa-save" aria-hidden="true"></i> Save'.html_safe, class: 'btn btn-success', type: 'submit' %>
 <% end %>

@@ -14,7 +14,7 @@
 
 	<div class="form-group">
 		<%= f.label :author_id %>
-		<%= collection_select(:book, :author_id, Author.all, :id, :name, class: 'form-control') %>
+		<%= collection_select(:book, :author_id, Author.all, :id, :name, {}, {class: 'form-control'}) %>
 	</div>
 
 	<div class="form-group">
@@ -27,5 +27,5 @@
 		<%= f.number_field :isbn, class: 'form-control' %>
 	</div>
 
-	<%= f.submit 'Save', class: 'btn btn-default' %>
+	<%= f.button '<i class="fa fa-save" aria-hidden="true"></i> Save'.html_safe, class: 'btn btn-success', type: 'submit' %>
 <% end %>

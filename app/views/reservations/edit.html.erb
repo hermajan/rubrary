@@ -2,5 +2,6 @@
 
 <%= render 'form', reservation: @reservation %>
 
-<%= link_to 'Show', @reservation %> |
-<%= link_to 'Back', reservations_path %>
+<ul class="pager">
+	<li class="previous"><%= link_to '&larr; Back'.html_safe, reservations_path %></li>
+</ul>

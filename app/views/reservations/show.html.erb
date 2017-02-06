@@ -1,7 +1,19 @@
 <h1>Reservation</h1>
-<p><%= link_to Book.find(@reservation.book_id).name, Book.find(@reservation.book_id) %></p>
-<p><%= User.find(@reservation.user_id).email %></p>
-<p><%= @reservation.from %></p>
-<p><%= @reservation.to %></p>
 
-<%= link_to 'Back', reservations_path %>
+<dl class="dl-horizontal">
+	<dt>Book name</dt>
+	<dd><%= link_to Book.find(@reservation.book_id).name, Book.find(@reservation.book_id) %></dd>
+	
+	<dt>User</dt>
+	<dd><%= User.find(@reservation.user_id).email %></dd>
+	
+	<dt>From</dt>
+	<dd><%= @reservation.from %></dd>
+	
+	<dt>To</dt>
+	<dd><%= @reservation.to %></dd>
+</dl>
+
+<ul class="pager">
+	<li class="previous"><%= link_to '&larr; Back'.html_safe, reservations_path %></li>
+</ul>

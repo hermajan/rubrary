@@ -1,6 +1,7 @@
-<h1>Editing Book</h1>
+<h1>Editing book</h1>
 
 <%= render 'form', book: @book %>
 
-<%= link_to 'Show', @book %> |
-<%= link_to 'Back', books_path %>
+<ul class="pager">
+	<li class="previous"><%= link_to '&larr; Back'.html_safe, books_path %></li>
+</ul>

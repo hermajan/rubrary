@@ -12,5 +12,5 @@
 		<%= f.text_field :name, class: 'form-control' %>
 	</div>
 
-	<%= f.submit 'Save', class: 'btn btn-default' %>
+	<%= f.button '<i class="fa fa-save" aria-hidden="true"></i> Save'.html_safe, class: 'btn btn-success', type: 'submit' %>
 <% end %>

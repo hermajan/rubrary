@@ -35,18 +35,18 @@ html, body {
 }
 
 .navbar-inverse {
-	background-color: maroon;
-	border-color: maroon;
+	background-color: #396534;
+	border-color: #396534;
 }
 .navbar-inverse .navbar-nav>li>a {
 	color: whitesmoke;
 }
 .navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>.active>a:hover {
 	background-color: whitesmoke;
-	color: firebrick;
+	color: green;
 }
 .navbar-inverse .navbar-nav>.active>a {
-	background-color: firebrick;
+	background-color: green;
 }
 
 #menu { 
@@ -56,18 +56,18 @@ html, body {
 	max-width: 300px;
 }
 #menu .panel-heading, #menu .panel-heading a {
-	background-color: maroon;
+	background-color: #396534;
 	color: whitesmoke;
 }
 #menu a:hover {
-	background-color: firebrick;
+	background-color: green;
 	color: white;
 }
 #menu .panel, #menu .nav>li>a {
-	border-color: maroon;
+	border-color: #396534;
 }
 #menu .panel-heading.active, #menu .panel-heading.active>h4>a, #menu li.active>a {
-	background-color: firebrick;
+	background-color: green;
 }
 #menu ul.inside {
 	margin-left: 20px;
