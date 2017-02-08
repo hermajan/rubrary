@@ -9,10 +9,19 @@ class BooksController < ApplicationController
 		@book = Book.find(params[:id])
 		
 		gr = Goodreads.new(Goodreads.configuration)
+		
 		if @book.isbn != ""
-			@goodreads = gr.book_by_isbn(@book.isbn)
+			begin
+				@goodreads = gr.book_by_isbn(@book.isbn)
+			rescue Goodreads::NotFound
+				@goodreads = nil
+			end
 		else
-			@goodreads = gr.book_by_title(@book.name)
+			begin
+				@goodreads = gr.book_by_title(@book.name)
+			rescue Goodreads::NotFound
+				@goodreads = nil
+			end
 		end
 	end
 

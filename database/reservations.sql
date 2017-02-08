@@ -1,0 +1,4 @@
+INSERT INTO reservations (id, book_id, from, to, created_at, updated_at, user_id, deleted_at) VALUES (1, 1, '2017-02-04 00:00:00', '2017-02-10 00:00:00', '2017-02-05 20:53:10.148197', '2017-02-08 15:11:17.007917', 2, NULL);
+INSERT INTO reservations (id, book_id, from, to, created_at, updated_at, user_id, deleted_at) VALUES (2, 5, '2017-02-07 00:00:00', '2017-02-08 00:00:00', '2017-02-06 00:29:21.119382', '2017-02-06 00:29:21.119382', 1, NULL);
+INSERT INTO reservations (id, book_id, from, to, created_at, updated_at, user_id, deleted_at) VALUES (3, 3, '2017-02-06 00:00:00', '2017-02-07 00:00:00', '2017-02-06 00:47:15.759516', '2017-02-06 00:47:15.759516', 1, '2017-02-07 16:39:43.928771');
+INSERT INTO reservations (id, book_id, from, to, created_at, updated_at, user_id, deleted_at) VALUES (4, 8, '2017-02-06 00:00:00', '2017-02-12 00:00:00', '2017-02-08 15:09:53.315037', '2017-02-08 15:10:29.884114', 1, NULL);

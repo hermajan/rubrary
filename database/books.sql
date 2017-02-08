@@ -1,0 +1,8 @@
+INSERT INTO books (id, name, author, year, isbn, created_at, updated_at, author_id, deleted_at) VALUES (1, 'Hobit aneb Cesta tam a zase zpátky', 'Jane Doe', 1937, 8020405062, '2017-02-07 16:38:38 UTC', '2017-02-07 16:38:38 UTC', 1, NULL);
+INSERT INTO books (id, name, author, year, isbn, created_at, updated_at, author_id, deleted_at) VALUES (2, 'Harry Potter a Kámen mudrců', 'A', 1997, 8000007886, '2017-01-29 00:15:10 UTC', '2017-02-07 16:42:44 UTC', 6, NULL);
+INSERT INTO books (id, name, author, year, isbn, created_at, updated_at, author_id, deleted_at) VALUES (3, 'aaa', NULL, 2, '', '2017-01-29 00:23:33 UTC', '2017-02-07 16:39:26 UTC', 5, '2017-02-07 16:39:44.010720');
+INSERT INTO books (id, name, author, year, isbn, created_at, updated_at, author_id, deleted_at) VALUES (4, 'tdret', 'dgd', 0, '', '2017-01-29 01:39:42 UTC', '2017-02-07 23:19:37 UTC', 3, NULL);
+INSERT INTO books (id, name, author, year, isbn, created_at, updated_at, author_id, deleted_at) VALUES (5, 'Poznej Brno: Průvodce místy, která nenajdete v průvodcích', 'sgss', 2012, '', '2017-01-29 01:40:43 UTC', '2017-02-08 01:40:59 UTC', 8, NULL);
+INSERT INTO books (id, name, author, year, isbn, created_at, updated_at, author_id, deleted_at) VALUES (6, 'Společenstvo prstenu', NULL, 1954, 8020409254, '2017-02-07 16:49:34 UTC', '2017-02-07 16:49:34 UTC', 1, NULL);
+INSERT INTO books (id, name, author, year, isbn, created_at, updated_at, author_id, deleted_at) VALUES (7, 1984, NULL, 1949, 0141036141, '2017-02-07 17:02:11 UTC', '2017-02-07 17:02:11 UTC', 7, NULL);
+INSERT INTO books (id, name, author, year, isbn, created_at, updated_at, author_id, deleted_at) VALUES (8, 'Rise of The Coders', NULL, 2016, 9782954706221, '2017-02-08 01:45:29 UTC', '2017-02-08 01:45:29 UTC', 9, NULL);

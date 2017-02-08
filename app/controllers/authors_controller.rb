@@ -9,10 +9,13 @@ class AuthorsController < ApplicationController
 		@author = Author.find(params[:id])
 		@author.books = @author.books.where('author_id' => params[:id]).order(:name)
 		
-		gr = Goodreads.new(Goodreads.configuration)
-		authorID = gr.author_by_name(@author.name).id
-		@goodreads = gr.author(authorID)
-		puts @goodreads
+		begin
+			gr = Goodreads.new(Goodreads.configuration)
+			authorID = gr.author_by_name(@author.name).id
+			@goodreads = gr.author(authorID)
+		rescue Goodreads::NotFound
+			@goodreads = nil
+		end
 	end
 
 	def new
