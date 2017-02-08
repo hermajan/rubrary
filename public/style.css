@@ -131,3 +131,10 @@ html, body {
 .github-widget {
 	max-width: 640px;
 }
+
+.information-table {
+	max-width: 75%;
+}
+.information-table th, .information-table td {
+	border: 0 !important;
+}

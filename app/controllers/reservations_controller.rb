@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-		before_action :authenticate_user!
+	before_action :authenticate_user!
 	
 	def index
         if current_user.try(:admin?)
@@ -43,10 +43,6 @@ class ReservationsController < ApplicationController
 
 	def destroy
 		@reservation = Reservation.find(params[:id])
-		# tasks = @reservation.tasks.with_deleted.where('reservation_id' => params[:id])
-		# tasks.each do |task|
-		#	 task.really_destroy!
-		# end
 		@reservation.destroy
 
 		redirect_to reservations_path

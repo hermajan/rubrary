@@ -3,7 +3,8 @@
 	<%= link_to '<i class="fa fa-plus" aria-hidden="true"></i> New'.html_safe, new_reservation_path, class: 'btn btn-success' %>
 <% end %>
 
-<table id="reservations_table" class="table">
+<div class="table-responsive">
+<table id="reservations_table" class="table table-hover">
 	<thead>
 		<tr>
 			<th>Book</th>
@@ -32,3 +33,4 @@
 	<% end %>
 	</tbody>
 </table>
+</div>

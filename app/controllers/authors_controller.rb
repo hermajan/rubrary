@@ -1,64 +1,57 @@
 class AuthorsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  
-  def index
-    @authors = Author.all.order(:name)
-    #@important = Task.where("priority < '0'").order(:priority).all
-  end
+	before_action :authenticate_user!, except: [:index, :show]
+	
+	def index
+		@authors = Author.all.order(:name)
+	end
 
-  def show
-    @author = Author.find(params[:id])
-    @author.books = @author.books.where('author_id' => params[:id]).order(:name)
-  end
+	def show
+		@author = Author.find(params[:id])
+		@author.books = @author.books.where('author_id' => params[:id]).order(:name)
+		
+		gr = Goodreads.new(Goodreads.configuration)
+		authorID = gr.author_by_name(@author.name).id
+		@goodreads = gr.author(authorID)
+		puts @goodreads
+	end
 
-  def completed
-    @author = Author.find(params[:id])
-    #@completed_books = @author.books.where('author_id' => params[:id]).order(:priority).only_deleted
+	def new
+		@author = Author.new
+	end
 
-    render 'show'
-  end
+	def edit
+		@author = Author.find(params[:id])
+	end
 
-  def new
-    @author = Author.new
-  end
+	def create
+		@author = Author.new(author_params)
 
-  def edit
-    @author = Author.find(params[:id])
-  end
+		if @author.save
+			redirect_to @author
+		else
+			render 'new'
+		end
+	end
 
-  def create
-    @author = Author.new(author_params)
+	def update
+		@author = Author.find(params[:id])
 
-    if @author.save
-      redirect_to @author
-    else
-      render 'new'
-    end
-  end
+		if @author.update(author_params)
+			redirect_to @author
+		else
+			render 'edit'
+		end
+	end
 
-  def update
-    @author = Author.find(params[:id])
+	def destroy
+		@author = Author.find(params[:id])
+		@author.destroy
 
-    if @author.update(author_params)
-      redirect_to @author
-    else
-      render 'edit'
-    end
-  end
+		redirect_to authors_path
+	end
 
-  def destroy
-    @author = Author.find(params[:id])
-    # books = @author.books.with_deleted.where('author_id' => params[:id])
-    # books.each do |task|
-    #   task.really_destroy!
-    # end
-    @author.destroy
-
-    redirect_to authors_path
-  end
-
-  private
-    def author_params
-      params.require(:author).permit(:name)
-    end
+	private
+		def author_params
+			params.require(:author).permit(:name)
+		end
 end

@@ -1,10 +1,59 @@
+<% if @goodreads %> 
+	<% if @goodreads.image_url.include? "m/"+@goodreads.id 
+		@goodreads.image_url.sub! "m/"+@goodreads.id, "l/"+@goodreads.id
+		end
+	%>
+	<img src="<%= @goodreads.image_url %>" class="img-responsive pull-right">
+<% end %>
+
 <h1><%= @author.name %></h1>
 
-<table id="books_table" class="table">
+<% if current_user.try(:admin?) %>
+	<%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i> Edit'.html_safe, edit_author_path(@author), class: 'btn btn-warning' %>
+	<%= link_to '<i class="fa fa-remove" aria-hidden="true"></i> Remove'.html_safe, @author, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+<% end %>
+<hr>
+
+<div class="table-responsive">
+<table class="table table-hover information-table">
+	<% if @goodreads.hometown %>
 	<tr>
-		<th>Book name</th>
-		<th>Book year</th>
-		<th>Book ISBN</th>
+		<th>Hometown</th>
+		<td><%= @goodreads.hometown %></td>
+	</tr>
+	<% end %>
+	
+	<% if @goodreads.born_at %>
+	<tr>
+		<th>Born</th>
+		<td><%= @goodreads.born_at[8..9]+"."+@goodreads.born_at[5..6]+"."+@goodreads.born_at[0..3] %></td>
+	</tr>
+	<% end %>
+	
+	<% if @goodreads.died_at %>
+	<tr>
+		<th>Died</th>
+		<td><%= @goodreads.died_at[8..9]+"."+@goodreads.died_at[5..6]+"."+@goodreads.died_at[0..3] %></td>
+	</tr>
+	<% end %>
+</table>
+</div>
+
+<% if @goodreads.about %>
+	<h3>About</h3>
+	<blockquote>
+		<p><%= @goodreads.about.html_safe %></p>
+		<footer>Source: <a href="<%= @goodreads.link %>"><%= @goodreads.link %></a></footer>
+	</blockquote>
+<% end %>
+
+<h3>Books</h3>
+<div class="table-responsive">
+<table id="books_table" class="table table-hover">
+	<tr>
+		<th>Name</th>
+		<th>Year</th>
+		<th>ISBN</th>
 	</tr>
 	<% (@author.books).each do |book| %>
 	<tr>
@@ -14,6 +63,7 @@
 	</tr>
 	<% end %>
 </table>
+</div>
 
 <ul class="pager">
 	<li class="previous"><%= link_to '&larr; Back'.html_safe, authors_path %></li>
