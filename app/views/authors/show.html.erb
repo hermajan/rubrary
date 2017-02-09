@@ -1,4 +1,4 @@
-<% if @goodreads %> 
+<% if @goodreads %>
 	<% if @goodreads.image_url.include? "m/"+@goodreads.id 
 		@goodreads.image_url.sub! "m/"+@goodreads.id, "l/"+@goodreads.id
 		end
@@ -14,6 +14,7 @@
 <% end %>
 <hr>
 
+<% if @goodreads %>
 <div class="table-responsive">
 <table class="table table-hover information-table">
 	<% if @goodreads.hometown %>
@@ -45,6 +46,7 @@
 		<p><%= @goodreads.about.html_safe %></p>
 		<footer>Source: <a href="<%= @goodreads.link %>"><%= @goodreads.link %></a></footer>
 	</blockquote>
+<% end %>
 <% end %>
 
 <h3>Books</h3>
