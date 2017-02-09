@@ -1,16 +1,16 @@
 class BooksController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
-	
+
 	def index
 		@books = Book.all.order(:name)
 	end
 
 	def show
 		@book = Book.find(params[:id])
-		
+
 		gr = Goodreads.new(Goodreads.configuration)
-		
-		if @book.isbn != ""
+
+		if @book.isbn != ''
 			begin
 				@goodreads = gr.book_by_isbn(@book.isbn)
 			rescue Goodreads::NotFound
@@ -61,7 +61,8 @@ class BooksController < ApplicationController
 	end
 
 	private
-		def book_params
-			params.require(:book).permit(:name, :author_id, :year, :isbn)
-		end
+
+	def book_params
+		params.require(:book).permit(:name, :author_id, :year, :isbn)
+	end
 end

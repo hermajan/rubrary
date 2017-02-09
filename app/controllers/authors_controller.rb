@@ -1,6 +1,6 @@
 class AuthorsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
-	
+
 	def index
 		@authors = Author.all.order(:name)
 	end
@@ -8,11 +8,11 @@ class AuthorsController < ApplicationController
 	def show
 		@author = Author.find(params[:id])
 		@author.books = @author.books.where('author_id' => params[:id]).order(:name)
-		
+
 		begin
 			gr = Goodreads.new(Goodreads.configuration)
-			authorID = gr.author_by_name(@author.name).id
-			@goodreads = gr.author(authorID)
+			author_id = gr.author_by_name(@author.name).id
+			@goodreads = gr.author(author_id)
 		rescue Goodreads::NotFound
 			@goodreads = nil
 		end
@@ -54,7 +54,8 @@ class AuthorsController < ApplicationController
 	end
 
 	private
-		def author_params
-			params.require(:author).permit(:name)
-		end
+
+	def author_params
+		params.require(:author).permit(:name)
+	end
 end

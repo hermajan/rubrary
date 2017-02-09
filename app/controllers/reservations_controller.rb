@@ -1,16 +1,17 @@
 class ReservationsController < ApplicationController
 	before_action :authenticate_user!
-	
+
 	def index
-        if current_user.try(:admin?)
-		    @reservations = Reservation.all.order(:id)
-        else
-            @reservations = Reservation.where('user_id' => current_user.id).order(:id)
-		end   
+		@reservations =
+			if current_user.try(:admin?)
+				Reservation.all.order(:id)
+			else
+				Reservation.where('user_id' => current_user.id).order(:id)
+			end
 	end
 
 	def show
-        @reservation = Reservation.find(params[:id])
+		@reservation = Reservation.find(params[:id])
 	end
 
 	def new
@@ -49,7 +50,8 @@ class ReservationsController < ApplicationController
 	end
 
 	private
-		def reservation_params
-			params.require(:reservation).permit(:book_id, :user_id, :from, :to)
-		end
+
+	def reservation_params
+		params.require(:reservation).permit(:book_id, :user_id, :from, :to)
+	end
 end
