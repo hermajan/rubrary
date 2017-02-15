@@ -1,13 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  author: MyString
-  year: 1
-  isbn: MyString
+hobit:
+  name: Hobit aneb Cesta tam a zase zpátky
+  author_id: 1
+  year: 1937
+  isbn: 8020405062
 
-two:
-  title: MyString
-  author: MyString
-  year: 1
-  isbn: MyString
+poznej:
+  name: "Poznej Brno: Průvodce místy, která nenajdete v průvodcích"
+  author_id: 2
+  year: 2012
+  isbn:
+
+spolecenstvo:
+  name: Společenstvo prstenu
+  author_id: 1
+  year: 1954
+  isbn: 8020409254
