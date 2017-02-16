@@ -23,9 +23,9 @@ class UserTest < ActiveSupport::TestCase
 		assert_equal 'root@test.com', user.email
 	end
 	
-	# test 'user delete' do
-	# 	user = User.find_by(id: 2)
-	# 	user.destroy!
-	# 	assert_not_nil user.deleted_at
-	# end
+	test 'user delete' do
+	 	user = User.find_by(id: 2)
+	 	user.delete
+	 	assert_not_nil user.deleted_at
+	end
 end
