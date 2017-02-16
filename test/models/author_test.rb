@@ -6,14 +6,14 @@ class AuthorTest < ActiveSupport::TestCase
 		assert_not author.save, 'Saved the author without a name'
 	end
 	
-	test 'author params' do
-		assert_equal 'J.R.R. Tolkien', authors(:tolkien).name
-	end
-	
 	test 'author create' do
 		author = Author.new
 		author.name = 'George Orwell'
 		assert author.save
+	end
+	
+	test 'author read' do
+		assert_equal 'J.R.R. Tolkien', authors(:tolkien).name
 	end
 	
 	test 'author update' do
