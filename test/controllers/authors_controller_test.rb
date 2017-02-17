@@ -40,8 +40,6 @@ class AuthorsControllerTest < ActionDispatch::IntegrationTest
 	end
 
 	test 'should destroy author' do
-		sign_in users(:root)
-		
 		author = authors(:kasparek)
 		assert_difference('Author.count', -1) do
 			delete author_path(author) 

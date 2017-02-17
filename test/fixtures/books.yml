@@ -1,18 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 hobit:
+  id: 1
   name: Hobit aneb Cesta tam a zase zpátky
   author_id: 1
   year: 1937
   isbn: 8020405062
 
 poznej:
+  id: 2
   name: "Poznej Brno: Průvodce místy, která nenajdete v průvodcích"
   author_id: 2
   year: 2012
   isbn:
 
 spolecenstvo:
+  id: 3
   name: Společenstvo prstenu
   author_id: 1
   year: 1954
