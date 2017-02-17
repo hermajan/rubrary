@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(version: 20170208173426) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "name"
-    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
   end
 
   create_table "books", force: :cascade do |t|
@@ -27,26 +27,27 @@ ActiveRecord::Schema.define(version: 20170208173426) do
     t.string   "author"
     t.integer  "year"
     t.string   "isbn"
-    t.integer  "author_id"
-    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "author_id"
+    t.datetime "deleted_at"
   end
 
   create_table "libraries", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
   end
 
   create_table "reservations", force: :cascade do |t|
     t.integer  "book_id"
     t.datetime "from"
     t.datetime "to"
-    t.integer  "user_id"
-    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.datetime "deleted_at"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(version: 20170208173426) do
     t.string   "fullName"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -69,6 +71,7 @@ ActiveRecord::Schema.define(version: 20170208173426) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+    t.datetime "deleted_at"
     t.boolean  "admin",                  default: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
