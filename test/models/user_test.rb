@@ -9,6 +9,8 @@ class UserTest < ActiveSupport::TestCase
 	# test 'user create' do
 	# 	user = User.create
 	# 	user.email = 'user@test'
+	# 	user.encrypted_password = 'a'
+	# 	user.sign_in_count = 0
 	# 	assert user.save
 	# end
 	
@@ -24,8 +26,8 @@ class UserTest < ActiveSupport::TestCase
 	end
 	
 	test 'user delete' do
-	 	user = User.find_by(id: 2)
-	 	user.delete
-	 	assert_not_nil user.deleted_at
+		user = User.find_by(id: 2)
+		user.delete
+		assert_not_nil user.deleted_at
 	end
 end

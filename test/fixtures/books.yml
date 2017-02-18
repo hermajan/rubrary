@@ -2,7 +2,7 @@
 
 hobit:
   id: 1
-  name: Hobit aneb Cesta tam a zase zpátky
+  name: "Hobit aneb Cesta tam a zase zpátky"
   author_id: 1
   year: 1937
   isbn: 8020405062
@@ -16,7 +16,7 @@ poznej:
 
 spolecenstvo:
   id: 3
-  name: Společenstvo prstenu
+  name: "Společenstvo prstenu"
   author_id: 1
   year: 1954
   isbn: 8020409254
