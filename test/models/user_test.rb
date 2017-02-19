@@ -6,14 +6,6 @@ class UserTest < ActiveSupport::TestCase
 		assert_not user.save, 'Saved the user without a email'
 	end
 	
-	# test 'user create' do
-	# 	user = User.create
-	# 	user.email = 'user@test'
-	# 	user.encrypted_password = 'a'
-	# 	user.sign_in_count = 0
-	# 	assert user.save
-	# end
-	
 	test 'user read' do
 		assert_equal 'toor@test', users(:toor).email
 	end
